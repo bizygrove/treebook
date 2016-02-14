@@ -16,3 +16,8 @@
 .container {
 	padding-top: 51px;
 }
+
+.notice, .alert {
+	border-radius: 4px;
+	 padding: 10px 5px;
+}
