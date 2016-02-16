@@ -18,6 +18,13 @@
 }
 
 .notice, .alert {
-	border-radius: 4px;
-	 padding: 10px 5px;
+	margin-top: 10px;
+}
+
+#new_user fieldset {
+	margin-bottom: 10px;
+}
+
+#new_user .btn-primary {
+	float: right;
 }

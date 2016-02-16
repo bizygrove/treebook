@@ -18,7 +18,7 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <%= link_to 'Treebook', statuses_path, :class => "navbar-brand" %>
+	      <%= link_to 'Treebook', feed_path, :class => "navbar-brand" %>
 	    </div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -39,9 +39,9 @@
 		        </li>
 		    <% else %>
 		    	<li>
-		    		<%= link_to "Register", new_user_registration_path %>
+		    		<%= link_to "Register", register_path %>
 		    	<li>
-	        		<%= link_to 'Login', new_user_session_path %>
+	        		<%= link_to 'Login', login_path %>
 	        	</li>
 	        <% end %>
 	      </ul>
@@ -52,8 +52,18 @@
 	
 
 	<div class="container">
-		<p class="notice bg-primary"><%= notice %></p>
-	    <p class="alert bg-danger"><%= alert %></p>
+	    <% if flash[:notice] %>
+	    	<div class="alert alert-success alert-dismissible" role="alert">
+			    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			    <%= flash[:notice] %>
+			</div>
+	    <% end %>
+	    <% if flash[:alert] %>
+	    	<div class="alert alert-danger alert-dismissible" role="alert">
+			    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			    <%= flash[:alert] %>
+			</div>
+	    <% end %>
 		<%= yield %>
 	</div>
 

@@ -1,5 +1,5 @@
 class StatusesController < ApplicationController
-  before_action  :authenticate_user!, :set_status, only: [:show, :edit, :update, :destroy]
+  before_action  :authenticate_user!, :set_status, only: [:show, :edit, :update, :destroy, :new, :create]
 
   # GET /statuses
   # GET /statuses.json
@@ -59,9 +59,9 @@ class StatusesController < ApplicationController
     if @status.user == current_user
       @status.destroy
       respond_to do |format|
-      format.html { redirect_to statuses_url, notice: 'Status was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+        format.html { redirect_to statuses_url, notice: 'Status was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     else
       redirect_to statuses_path, notice: 'You cant delete this item'
     end
@@ -70,7 +70,7 @@ class StatusesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_status
-      @status = Status.find(params[:id])
+      @status = Status.find(params[:id]) rescue nil
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
