@@ -1,2 +1,40 @@
-<h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6 profile-page">
+		<h1><%= @user.full_name %></h1>
+
+		<% if @statuses %>
+
+			<% @statuses.each do |status| %>
+				<div class="panel panel-primary status">
+		            <div class="panel-body">
+		                <div class="status-pic">
+		                    <%= image_tag status.user.gravatar_url %>
+		                </div>
+		                <div class="status-name">
+		                    <h4>
+		                        <%= link_to status.user.full_name, profile_path(status.user.profile_name) %>
+		                        <% if @user.id == status.user_id %>
+		                            <div class="meta">
+		                                <div class="admin">
+		                                    <%= link_to "", edit_status_path(status), class: "edit-btn" %>
+		                                    <%= link_to "", status, method: :delete, data: {confirm: 'Are you Sure?'}, class: "delete-btn" %>
+		                                </div>
+		                            </div>
+		                        <% end %>
+		                    </h4>
+		                </div>
+		            
+		                <p><%= status.content %></p>
+		                <div class="status-view">
+		                    <%= link_to time_ago_in_words(status.created_at) + ' ago', status %>
+		                </div>
+		            </div>
+		        </div>
+			<% end %>
+		<% end %>
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>

@@ -1,0 +1,138 @@
+
+.login-container {
+	background: image-url("login-bg.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+    height: 100vh;
+    left: 0;
+    min-height: 500px;
+    padding-top: 60px;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+}
+
+
+.login-form {
+    left: 50%;
+    max-width: 400px;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 100%; 
+
+    .actions {
+    	input {
+    		float: right;
+    		min-width: 150px;
+    		text-shadow: none;
+    	}
+    }
+
+    .control-label {
+        display: none;
+    }
+
+    .form-control {
+        background-color: transparent;
+        background-image: none;
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 0;
+        color: rgba(255, 255, 255, 0.5);
+        box-shadow: none;
+        transition: color 0.3s ease-in-out 0s;
+        
+        &:hover, &:focus, &:active{
+            border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.8);
+        }
+    }
+
+    .form-control::-moz-placeholder {
+        color: rgba(255, 255, 255, 0.5);
+        transition: color 0.3s ease-in-out 0s;
+    }
+
+    .form-control:focus::-moz-placeholder {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .form-control:-ms-input-placeholder {
+        color: rgba(255, 255, 255, 0.5);
+        transition: color 0.3s ease-in-out 0s;
+    }
+
+    .form-control:focus:-ms-input-placeholder {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .form-control::-webkit-input-placeholder {
+        color: rgba(255, 255, 255, 0.5);
+        transition: color 0.3s ease-in-out 0s;
+    }
+
+    .form-control:focus::-webkit-input-placeholder {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .btn-default {
+        background-color: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: none;
+        color: rgba(255, 255, 255, 0.9);
+        transition: background 0.3s ease-in-out 0s;
+        
+        &:hover, &:focus, &:active {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 1);
+            outline: medium none;
+        }
+    }
+
+    .user_remember_me {
+        label {
+            color: rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    .login-links {
+        background: transparent;
+        border:none;
+        border: 1px solid transparent;
+        border-radius: 0;
+        box-shadow: none;
+        color: rgba(255, 255, 255, 0.5);
+        padding: 5px 0;
+        margin-top: 0;
+        text-decoration: none;
+        text-shadow: none;
+        
+        &:hover, &:focus, &:active{
+            background: transparent;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.8);
+            outline: none;
+        }
+
+        &:last-child {
+            float: right;
+        }
+    }
+}
+
+
+#error_explanation {
+    h2 {
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 100;
+    }
+
+    li {
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 200;
+    }
+}
+
+

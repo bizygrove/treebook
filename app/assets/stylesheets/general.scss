@@ -1,0 +1,183 @@
+/*===========================
+	GENERAL
+
+	- GENERAL
+	- ALERTS + NOTICES
+	- LAYOUT
+	- NAV
+	- CLASSES
+
+dark grey:
+rgba(46, 46, 46, 1)
+#2e2e2e
+hsla(0, 0%, 18%, 1)
+
+dark red:
+#cc0000
+rgba(204, 0, 0, 1)
+hsla(0, 100%, 40%, 1)
+
+white:
+#ffffff
+rgba(255, 255, 255, 0.8);
+===========================*/
+
+
+/*=================================================================================
+	GENERAL
+=================================================================================*/
+
+body {
+	background: image-url("home-bg.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	color: #2e2e2e;
+}
+
+/*=================================================================================
+	ALERTS + NOTICES
+=================================================================================*/
+
+.notice, .alert {
+	border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: none;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 auto;
+    max-width: 770px;
+    padding: 10px 35px 10px 20px;
+    position: relative;
+    width: 100%;
+    z-index: 100;
+    
+    &.alert-danger {
+    	background: rgba(255, 100, 100, 0.8);
+    }
+
+    &.alert-success {
+    	background: rgba(115, 230, 115, 0.8);
+    }
+}
+
+/*=================================================================================
+	NAV
+=================================================================================*/
+
+.navbar.navbar-fixed-top {
+	background: rgba(255, 255, 255, 0.3);
+	border: none;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+	transition: background 0.3s ease-in-out 0s;
+	
+	&:hover {
+		background: rgba(255, 255, 255, 0.8);
+	}
+
+	// DROP DOWN FOR USER LINKS
+
+	.dropdown-menu {
+		background: rgba(46, 46, 46, 0.5);
+		border: none;
+		display: inline-block;
+		left: auto;
+		max-height: 0px;
+		right: 0;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		transition: max-height 0.5s ease-in-out 0s;
+		
+		li a {
+			color: rgba(255, 255, 255, 0.8) !important;
+			line-height: 1;
+    		padding: 10px 20px;
+
+			&:focus, &:active, &:hover {
+				background: rgba(46, 46, 46, 0.5) !important;
+			}
+		}
+	}
+
+	.open {
+		
+		> a {
+			background: transparent;
+			box-shadow: none;
+			&:focus, &:active, &:hover {
+				background: transparent;
+				box-shadow: none;
+			}
+		}
+
+		.dropdown-menu {
+			max-height:400px;
+		}
+	}
+
+	// BRAND LOGO DESIGN
+
+	.navbar-brand, li a {
+		color: #2e2e2e;
+		font-weight: 200;
+	}
+
+	// USER PIC TOP RIGHT CORNER
+
+	.dropdown-toggle {
+		padding-top: 5px;
+		padding-bottom: 5px;
+		
+		img {
+		    border-radius: 100%;
+		    cursor: pointer;
+		    margin-right: 5px;
+		    transform: scale(1);
+		    width: 40px;
+		    transition: transform 0.3s ease-in-out 0s;
+		    
+		    &:hover {
+		    	transform:scale(1.2);
+		    }
+		}
+	}
+
+	// HIDING NAV MENU ON RESPONSIVE
+	
+	.navbar-toggle {
+		display: none;
+	}
+
+	.navbar-header {
+		width: 100%;
+	}
+
+	.navbar-right {
+	    float: right;
+	    margin-right: -15px;
+	    margin-left: 0;
+	    margin-top: 0;
+	    margin-bottom: 0;
+	}
+}
+
+
+@media (max-width: 770px) {
+	.navbar.navbar-fixed-top .navbar-right {
+		margin: 0 -30px 0 0;
+	}
+}
+
+/*=================================================================================
+	LAYOUT
+=================================================================================*/
+
+
+
+/*=================================================================================
+	CLASSES
+=================================================================================*/
+
+
+/*=================================================================================
+	GENERAL
+=================================================================================*/

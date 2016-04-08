@@ -1,15 +1,18 @@
 class StatusesController < ApplicationController
-  before_action  :authenticate_user!, :set_status, only: [:show, :edit, :update, :destroy, :new, :create]
+  before_action  :authenticate_user!, :set_status, only: [:show, :edit, :update, :destroy, :new, :create, :index]
 
   # GET /statuses
   # GET /statuses.json
   def index
-    @statuses = Status.all
+    @user = current_user
+    @status = current_user.statuses.new
+    @statuses = Status.order('created_at DESC').all
   end
 
   # GET /statuses/1
   # GET /statuses/1.json
   def show
+    @user = current_user
   end
 
   # GET /statuses/new
@@ -29,7 +32,7 @@ class StatusesController < ApplicationController
     respond_to do |format|
       if @status.user == current_user
         @status.save
-        format.html { redirect_to @status, notice: 'Status was successfully created.' }
+        format.html { redirect_to feed_path, notice: 'Status was successfully created.' }
         format.json { render :show, status: :created, location: @status }
       else
         format.html { render :new }

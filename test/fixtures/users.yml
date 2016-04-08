@@ -3,3 +3,9 @@ daniel:
  last_name: "Bisgrove"
  email: "dan.bisgrove@star-digital.co.uk"
  profile_name: "danielbisgrove"
+
+richard:
+ first_name: "richard"
+ last_name: "Mcaully"
+ email: "richard@star-digital.co.uk"
+ profile_name: "richard"

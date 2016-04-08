@@ -1,0 +1,151 @@
+/*===========================
+	PROFILE
+
+	- GENERAL
+	- EDIT PROFILE
+
+dark grey:
+rgba(46, 46, 46, 1)
+#2e2e2e
+hsla(0, 0%, 18%, 1)
+
+dark red:
+#cc0000
+rgba(204, 0, 0, 1)
+hsla(0, 100%, 40%, 1)
+
+white:
+#ffffff
+rgba(255, 255, 255, 0.8);
+===========================*/
+
+/*=================================================================================
+	PROFILE GENERAL
+=================================================================================*/
+
+
+
+/*=================================================================================
+	EDIT PROFILE
+=================================================================================*/
+
+
+
+
+.simple_form {
+
+	.field {
+		margin-bottom: 20px;
+		
+		input {
+			background-color: transparent;
+		    background-image: none;
+		    border: none;
+		    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+		    border-radius: 0;
+		    color: rgba(255, 255, 255, 0.5);
+		    box-shadow: none;
+		    font-size: 20px;
+    		font-weight: 200;
+		    transition: color 0.3s ease-in-out 0s;
+		    width: 100%;
+		    
+		    &:hover, &:focus, &:active{
+		        border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+		        color: rgba(255, 255, 255, 0.8);
+		    }
+		}
+
+		input::-moz-placeholder {
+		    color: rgba(255, 255, 255, 0.5);
+		    transition: color 0.3s ease-in-out 0s;
+		}
+
+		input:focus::-moz-placeholder  {
+		    color: rgba(255, 255, 255, 0.8);
+		}
+
+		input:-ms-input-placeholder {
+		    color: rgba(255, 255, 255, 0.5);
+		    transition: color 0.3s ease-in-out 0s;
+		}
+
+		input:focus:focus:-ms-input-placeholder {
+		    color: rgba(255, 255, 255, 0.8);
+		}
+
+		input::-webkit-input-placeholder {
+		    color: rgba(255, 255, 255, 0.5);
+		    transition: color 0.3s ease-in-out 0s;
+		}
+
+		input:focus::-webkit-input-placeholder {
+		    color: rgba(255, 255, 255, 0.8);
+		}
+	}	
+
+	.actions {
+		text-align: right;
+		
+		.save {
+			background: image-url("save.png");
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+		    border: medium none;
+		    box-shadow: none;
+		    color: #333;
+		    cursor: pointer;
+		    height: 55px;
+		    opacity: 0.5;
+		    width: 55px;
+		    transition: opacity 0.3s ease-in-out 0s;
+		    
+		    &:hover {
+		    	opacity: 0.9;
+		    }
+		}
+
+		.form-links {
+			float: left;
+			margin-top: 18px;
+		}
+	}
+}
+
+.cancel-account {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+	margin-top: 50px;
+	
+	h2 {
+		border: none;
+		float: left;
+		margin-bottom: 0;
+		margin-top: 0;
+		width: 80%;
+	}
+
+	form {
+		float: right;
+		text-align: right;
+		margin-top: 5px;
+		width: 20%;
+	}
+
+	.delete {
+		background: image-url("delete.png");
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+	    border: medium none;
+	    box-shadow: none;
+	    color: #333;
+	    cursor: pointer;
+	    height: 35px;
+	    opacity: 0.5;
+	    width: 35px;
+	    transition: opacity 0.3s ease-in-out 0s;
+	    
+	    &:hover {
+	    	opacity: 0.9;
+	    }
+	}
+}
