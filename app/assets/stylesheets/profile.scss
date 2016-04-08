@@ -23,6 +23,12 @@ rgba(255, 255, 255, 0.8);
 	PROFILE GENERAL
 =================================================================================*/
 
+.profile-page {
+	.point-counter {
+		margin: 0 0 20px 0;
+		font-weight: 400;
+	}
+}
 
 
 /*=================================================================================
@@ -81,6 +87,30 @@ rgba(255, 255, 255, 0.8);
 
 		input:focus::-webkit-input-placeholder {
 		    color: rgba(255, 255, 255, 0.8);
+		}
+
+		&.status-color-field {
+			label {
+				display: none;
+			}
+
+			.minicolors {
+				width: 100%;
+				
+				.minicolors-input {
+					height: auto;
+					padding: 0;
+					padding-left: 32px;
+				}
+
+				.minicolors-swatch {
+				    top: 0;
+				    left: 0;
+				    width: 27px;
+				    height: 27px;
+				    border: none;
+				}
+			}
 		}
 	}	
 

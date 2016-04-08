@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
 
 		if @user
 			@statuses = @user.statuses.order('created_at DESC').all
+			@king = Status.order("created_at").last
 			render action: :show
 		else
 			render file: 'public/404', status: 404, formats: [:html]

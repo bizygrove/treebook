@@ -6,8 +6,20 @@
 
 		<% if @statuses %>
 
+			<h2 class="point-counter">Points: <%= @statuses.count() %></h2>
+
 			<% @statuses.each do |status| %>
-				<div class="panel panel-primary status">
+				<div class="panel panel-primary status
+	            <% if @king.user_id == status.user_id %>
+	                    statusking
+	            <% end %>
+	            <% if @king.id == status.id %>
+	                    kingstatus
+	            <% end %>"
+	            <% if @user.id == status.user_id %>
+	                style="background-color:<%= current_user.status_color '0.5' %>"
+	            <% end %>
+	            >
 		            <div class="panel-body">
 		                <div class="status-pic">
 		                    <%= image_tag status.user.gravatar_url %>

@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   								with: /\A[a-zA-Z\-\_]+\Z/,
   								message: 'Must be formatted correctly.'
   							}
+    validates :status_colour, presence: true
 
   def full_name
   	first_name + " " + last_name
@@ -27,6 +28,11 @@ class User < ActiveRecord::Base
 
   end
 
-
+  def status_color opacity
+    input = status_colour
+    a = ( input.match /#(..?)(..?)(..?)/ )[1..3]
+    a.map!{ |x| x + x } if input.size == 4
+    "rgba(#{a[0].hex},#{a[1].hex},#{a[2].hex}," + opacity + ")"
+  end
 
 end

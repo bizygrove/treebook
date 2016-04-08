@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery.minicolors
  */
 .container.content {
 	padding-top: 51px;

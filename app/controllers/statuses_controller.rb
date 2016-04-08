@@ -7,6 +7,7 @@ class StatusesController < ApplicationController
     @user = current_user
     @status = current_user.statuses.new
     @statuses = Status.order('created_at DESC').all
+    @king = Status.order("created_at").last
   end
 
   # GET /statuses/1
