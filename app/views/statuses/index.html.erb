@@ -17,7 +17,7 @@
             <% if @king.id == status.id %>
                     kingstatus
             <% end %>"
-            style="background-color:<%= current_user.status_color '0.5' %>"
+            style="background-color:<%= status.user.status_color '0.5' %>"
 
             >
                 <div class="panel-body">
