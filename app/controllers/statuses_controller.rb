@@ -8,17 +8,20 @@ class StatusesController < ApplicationController
     @status = current_user.statuses.new
     @statuses = Status.order('created_at DESC').all
     @king = Status.order("created_at").last
+    @status.build_document
   end
 
   # GET /statuses/1
   # GET /statuses/1.json
   def show
     @user = current_user
+    @king = Status.order("created_at").last
   end
 
   # GET /statuses/new
   def new
     @status = current_user.statuses.new
+    @status.build_document
   end
 
   # GET /statuses/1/edit
@@ -79,6 +82,6 @@ class StatusesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def status_params
-      params.require(:status).permit(:content, :user_id)
+      params.require(:status).permit(:content, :user_id, :document_id, document_attributes: [:add_attachment] )
     end
 end

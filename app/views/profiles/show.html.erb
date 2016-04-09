@@ -35,8 +35,10 @@
 		                        <% end %>
 		                    </h4>
 		                </div>
-		            
 		                <p><%= status.content %></p>
+		                <% if status.document_id && status.document.add_attachment? %>
+	                        <%= link_to image_tag(status.document.add_attachment.url, :alt => status.content), status.document.add_attachment.url %>
+	                    <% end %>
 		                <div class="status-view">
 		                    <%= link_to time_ago_in_words(status.created_at) + ' ago', status %>
 		                </div>

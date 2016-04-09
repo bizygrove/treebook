@@ -1,11 +1,15 @@
-<%= simple_form_for(@status, html: {class: "form-horizontal clearfix"}) do |f| %>
+<%= simple_form_for(@status, html: {class: "form-horizontal clearfix", multipart: true}) do |f| %>
   
   <%= f.input_field :content, rows: '1', placeholder: 'Status Wall', label: false, onkeyup: "AutoGrowTextArea(this)" %>
   <%= f.input :user_id, input_html: { type: 'hidden' }, :disabled => true, label: false %>
-
   <div class="form-actions">
     <%= f.button :submit,  value: '' %>
   </div>
+  <%= f.fields_for :document do |document_fields| %>
+    <%= document_fields.input :add_attachment, as: :file %>
+  <% end %>
+
+  
 
   <% if @status.errors.any? %>
     <div id="error_explanation">

@@ -1,4 +1,4 @@
-<%= simple_form_for(@status, html: {class: "form-horizontal status-form clearfix"}) do |f| %>
+<%= simple_form_for(@status, html: {class: "form-horizontal status-form clearfix", multipart: true}) do |f| %>
   <% if @status.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@status.errors.count, "error") %> prohibited this status from being saved:</h2>
@@ -12,6 +12,8 @@
   <% end %>
   <%= f.input :user_id, input_html: { type: 'hidden' }, :disabled => true, label: false  %>
   <%= f.input_field :content, rows: '3', placeholder: 'Status', label: false, onkeyup: "AutoGrowTextArea(this)"  %>
+
+  <%= f.input :add_attachment, as: :file %>
 
   <div class="form-actions">
     <%= f.button :submit,  value: '' %>
