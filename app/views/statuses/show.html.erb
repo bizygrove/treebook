@@ -12,7 +12,7 @@
                 kingstatus
         <% end %>"
          <% if @status.user.status_colour? %>
-            style="background-color:<%= current_user.status_color '0.5' %>"
+            style="background-color:<%= @status.user.status_color '0.5' %>"
         <% end %> 
         >
             <div class="panel-body">
