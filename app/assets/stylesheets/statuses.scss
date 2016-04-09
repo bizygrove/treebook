@@ -156,6 +156,7 @@ rgba(255, 255, 255, 0.8);
 
 	.status-pic {
 	    float: left;
+	    margin-bottom: 20px;
 	    width: 20%;
 	    
 	    img {
@@ -190,6 +191,10 @@ rgba(255, 255, 255, 0.8);
 	    margin-top: 0px;
 	    width: 80%;
 	    transition: color 0.3s ease-in-out 0s;
+	}
+
+	img {
+		max-width: 100%;
 	}
 
 	.status-view {
