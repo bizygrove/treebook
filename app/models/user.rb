@@ -30,9 +30,11 @@ class User < ActiveRecord::Base
 
   def status_color opacity
     input = status_colour
-    a = ( input.match /#(..?)(..?)(..?)/ )[1..3]
-    a.map!{ |x| x + x } if input.size == 4
-    "rgba(#{a[0].hex},#{a[1].hex},#{a[2].hex}," + opacity + ")"
+    if (input.mb_chars.length == 7)
+      a = ( input.match /#(..?)(..?)(..?)/ )[1..3]
+      a.map!{ |x| x + x } if input.size == 4
+      "rgba(#{a[0].hex},#{a[1].hex},#{a[2].hex}," + opacity + ")"
+    end
   end
 
 end
