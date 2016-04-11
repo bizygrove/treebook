@@ -82,6 +82,6 @@ class StatusesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def status_params
-      params.require(:status).permit(:content, :user_id, :document_id, document_attributes: [:add_attachment] )
+      params.require(:status).permit(:content, :user_id, :document_id, document_attributes: [:add_attachment, :add_attachment_file_name] )
     end
 end
