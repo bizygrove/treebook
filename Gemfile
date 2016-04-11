@@ -35,7 +35,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'jquery-minicolors-rails'
 gem "paperclip"
-gem 'aws-sdk'
+gem 'aws-sdk', '~> 1.6'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
