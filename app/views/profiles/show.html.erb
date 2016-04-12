@@ -4,48 +4,89 @@
     <div class="col-md-6 profile-page">
 		<h1><%= @user.full_name %></h1>
 
-		<% if @statuses %>
-
-			<h2 class="point-counter">Points: <%= @statuses.count() %></h2>
-
-			<% @statuses.each do |status| %>
-				<div class="panel panel-primary status
-	            <% if @king.user_id == status.user_id %>
-	                    statusking
-	            <% end %>
-	            <% if @king.id == status.id %>
-	                    kingstatus
-	            <% end %>"
-	            style="background-color:<%= status.user.status_color '0.5' %>"
-	            >
-		            <div class="panel-body">
-		                <div class="status-pic">
-		                    <%= image_tag status.user.gravatar_url %>
-		                </div>
-		                <div class="status-name">
-		                    <h4>
-		                        <%= link_to status.user.full_name, profile_path(status.user.profile_name) %>
-		                        <% if @user.id == status.user_id %>
-		                            <div class="meta">
-		                                <div class="admin">
-		                                    <%= link_to "", edit_status_path(status), class: "edit-btn" %>
-		                                    <%= link_to "", status, method: :delete, data: {confirm: 'Are you Sure?'}, class: "delete-btn" %>
-		                                </div>
-		                            </div>
-		                        <% end %>
-		                    </h4>
-		                </div>
-		                <p><%= status.content %></p>
-		                <% if status.document_id && status.document.add_attachment? %>
-	                        <%= link_to image_tag(status.document.add_attachment.url, :alt => status.content), status.document.add_attachment.url %>
-	                    <% end %>
-		                <div class="status-view">
-		                    <%= link_to time_ago_in_words(status.created_at) + ' ago', status %>
-		                </div>
-		            </div>
-		        </div>
+		<ul class="profile-tab-selector clearfix">
+			<% if @statuses %>
+				<li class="profile-area active" data-profile-area="status">
+					Status
+				</li>
 			<% end %>
-		<% end %>
+			<% if @gallery %>
+				<li class="profile-area" data-profile-area="gallery">
+					Gallery
+				</li>
+			<% end %>
+			<% if @statuses %>
+				<li class="profile-area" data-profile-area="points">
+					Points
+				</li>
+			<% end %>
+		</ul>
+
+		<div class="content-manager">
+
+			<% if @gallery %>
+				<div class="gallery-holder clearfix" id="gallery">
+					<% @gallery.each do |image| %>
+						<div class="item">
+							<%= image_tag(image.document.add_attachment.url(:medium), :alt => image.content) %>
+							<div class="item-caption">
+								<p><%= image.content %></p>
+								<p>Date: <%= time_ago_in_words(image.document.created_at) + ' ago' %></p>
+								<p>Size: <%= (image.document.add_attachment_file_size.to_f / 1000).round %>km</p>
+							</div>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
+
+			<% if @statuses %>
+
+				<div class="statuses-holder active clearfix" id="status">
+					<% @statuses.each do |status| %>
+						<div class="panel panel-primary status
+			            <% if @king.user_id == status.user_id %>
+			                    statusking
+			            <% end %>
+			            <% if @king.id == status.id %>
+			                    kingstatus
+			            <% end %>"
+			            style="background-color:<%= status.user.status_color '0.5' %>"
+			            >
+				            <div class="panel-body">
+				                <div class="status-pic">
+				                    <%= image_tag status.user.gravatar_url %>
+				                </div>
+				                <div class="status-name">
+				                    <h4>
+				                        <%= link_to status.user.full_name, profile_path(status.user.profile_name) %>
+				                        <% if @user.id == status.user_id %>
+				                            <div class="meta">
+				                                <div class="admin">
+				                                    <%= link_to "", edit_status_path(status), class: "edit-btn" %>
+				                                    <%= link_to "", status, method: :delete, data: {confirm: 'Are you Sure?'}, class: "delete-btn" %>
+				                                </div>
+				                            </div>
+				                        <% end %>
+				                    </h4>
+				                </div>
+				                <p><%= status.content %></p>
+				                <% if status.document_id && status.document.add_attachment? %>
+			                        <%= link_to image_tag(status.document.add_attachment.url(:medium), :alt => status.content), status.document.add_attachment.url %>
+			                    <% end %>
+				                <div class="status-view">
+				                    <%= link_to time_ago_in_words(status.created_at) + ' ago', status %>
+				                </div>
+				            </div>
+				        </div>
+					<% end %>
+				</div>
+			<% end %>
+			<div class="points-holder clearfix" id="points">
+				<% if @statuses %>
+					<h2 class="point-counter">Points: <%= @statuses.count() %></h2>
+				<% end %>
+			</div>
+		</div>
     </div>
     <div class="col-md-3">
     </div>

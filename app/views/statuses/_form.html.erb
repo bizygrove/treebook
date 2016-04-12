@@ -13,7 +13,12 @@
   <%= f.input :user_id, input_html: { type: 'hidden' }, :disabled => true, label: false  %>
   <%= f.input_field :content, rows: '3', placeholder: 'Status', label: false, onkeyup: "AutoGrowTextArea(this)"  %>
 
+  <% if @status.document_id && @status.document.add_attachment? %>
+      <%= link_to image_tag(@status.document.add_attachment.url(:thumb), :alt => @status.content), @status.document.add_attachment.url %>
+  <% end %>
+
   <%= f.input :add_attachment, as: :file %>
+
 
   <div class="form-actions">
     <%= f.button :submit,  value: '' %>

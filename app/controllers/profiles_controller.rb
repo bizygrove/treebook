@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
 
 		if @user
 			@statuses = @user.statuses.order('created_at DESC').all
+			@gallery = @user.statuses.all.where('document_id IS NOT NULL').order('created_at DESC')
 			@king = Status.order("created_at").last
 			render action: :show
 		else

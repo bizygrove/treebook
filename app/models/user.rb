@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :statuses
+  has_many :documents
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -13,7 +14,11 @@ class User < ActiveRecord::Base
   								with: /\A[a-zA-Z\-\_]+\Z/,
   								message: 'Must be formatted correctly.'
   							}
-    validates :status_colour, presence: true
+    validates :status_colour, presence: true,
+                format: {
+                  with: /\A#?(?:[A-F0-9]{3}){1,2}\z/i,
+                  message: 'Status Colour must be in hex format.'
+                }
 
   def full_name
   	first_name + " " + last_name

@@ -25,8 +25,47 @@ rgba(255, 255, 255, 0.8);
 
 .profile-page {
 	.point-counter {
+		color: rgba(46, 46, 46, 1);
 		margin: 0 0 20px 0;
-		font-weight: 400;
+		font-weight: 300;
+	}
+
+	.profile-tab-selector {
+		list-style: outside none none;
+	    margin-bottom: 20px;
+	    padding: 0;
+	    width: 100%;
+	    
+		.profile-area {
+		    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+		    border-left: 1px solid rgba(255, 255, 255, 0.5);
+		    color: rgba(255, 255, 255, 0.5);
+		    cursor: pointer;
+		    float: left;
+		    font-size: 24px;
+		    font-weight: 100;
+		    padding: 10px 30px;
+		    
+		    &:first-child {
+		    	border-left: none;
+		    }
+
+		    &:hover, &.active {
+		    	background: rgba(255, 255, 255, 0.5);
+		    	color: rgba(46, 46, 46, 1);
+		    }
+		}
+	}
+
+	.content-manager {
+
+		> div {
+			display: none;
+			
+			&.active {
+				display: block;
+			}
+		}
 	}
 }
 
