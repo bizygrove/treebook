@@ -6,7 +6,7 @@ class StatusesController < ApplicationController
   def index
     @user = current_user
     @status = current_user.statuses.new
-    @statuses = Status.order('created_at DESC').all
+    @statuses = Status.order('created_at DESC').all.page params[:page]
     @king = Status.order("created_at").last
     @status.build_document
   end

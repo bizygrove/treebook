@@ -7,50 +7,51 @@
           <%= render 'indexform'%>
           <!-- <%= link_to 'Post New Status', new_status_path, class: "btn btn-success post-new-status" %> -->
         </div>
+        <%= paginate @statuses %>
+            <% @statuses.each do |status| %>
+                <div 
+                class="panel panel-primary status
+                <% if @king.user_id == status.user_id %>
+                        statusking
+                <% end %>
+                <% if @king.id == status.id %>
+                        kingstatus
+                <% end %>"
+                <% if status.user.status_colour? %>
+                    style="background-color:<%= status.user.status_color '0.5' %>"
+                <% end %>
 
-        <% @statuses.each do |status| %>
-            <div 
-            class="panel panel-primary status
-            <% if @king.user_id == status.user_id %>
-                    statusking
-            <% end %>
-            <% if @king.id == status.id %>
-                    kingstatus
-            <% end %>"
-            <% if status.user.status_colour? %>
-                style="background-color:<%= status.user.status_color '0.5' %>"
-            <% end %>
-
-            >
-                <div class="panel-body">
-                    <div class="status-pic">
-                        <%= image_tag status.user.gravatar_url %>
-                    </div>
-                    <div class="status-name">
-                        <h4>
-                            <%= link_to status.user.full_name, profile_path(status.user.profile_name) %>
-                            <% if @user.id == status.user_id %>
-                                <div class="meta">
-                                    <div class="admin">
-                                        <%= link_to "", edit_status_path(status), class: "edit-btn" %>
-                                        <%= link_to "", status, method: :delete, data: {confirm: 'Are you Sure?'}, class: "delete-btn" %>
+                >
+                    <div class="panel-body">
+                        <div class="status-pic">
+                            <%= image_tag status.user.gravatar_url %>
+                        </div>
+                        <div class="status-name">
+                            <h4>
+                                <%= link_to status.user.full_name, profile_path(status.user.profile_name) %>
+                                <% if @user.id == status.user_id %>
+                                    <div class="meta">
+                                        <div class="admin">
+                                            <%= link_to "", edit_status_path(status), class: "edit-btn" %>
+                                            <%= link_to "", status, method: :delete, data: {confirm: 'Are you Sure?'}, class: "delete-btn" %>
+                                        </div>
                                     </div>
-                                </div>
-                            <% end %>
-                        </h4>
-                    </div>
-                    <p><%= status.content %></p>
-                    <% if status.document_id && status.document.add_attachment? %>
-                        <%= link_to image_tag(status.document.add_attachment.url(:medium), :alt => status.content), status.document.add_attachment.url %>
-                    <% end %>
-                
+                                <% end %>
+                            </h4>
+                        </div>
+                        <p><%= status.content %></p>
+                        <% if status.document_id && status.document.add_attachment? %>
+                            <%= link_to image_tag(status.document.add_attachment.url(:medium), :alt => status.content), status.document.add_attachment.url %>
+                        <% end %>
                     
-                    <div class="status-view">
-                        <%= link_to time_ago_in_words(status.created_at) + ' ago', status %>
+                        
+                        <div class="status-view">
+                            <%= link_to time_ago_in_words(status.created_at) + ' ago', status %>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <% end %>
+            <% end %>
+        <%= paginate @statuses %>
     </div>
     <div class="col-md-3">
     </div>

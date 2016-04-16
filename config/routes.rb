@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+
+  devise_for :admins
+  resources :admins
+
+  get 'admin' => 'admin#home'
+
+  namespace :admin do
+    resources :admins
+  end
+
+  delete "/admin/admins/:id", to: "admin/admins#destroy", as: :destroy_admin_admin
+
   get 'profiles/show'
 
   devise_for :users

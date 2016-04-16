@@ -38,6 +38,10 @@ gem "paperclip"
 gem 'aws-sdk', '~> 1.6'
 gem 'jquery-turbolinks'
 
+#admin gems for data and pagination
+gem 'datagrid'
+gem 'kaminari'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
